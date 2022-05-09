@@ -5,11 +5,8 @@ using UnityEngine;
 public class BulletProto : MonoBehaviour
 {
 
-    public Rigidbody2D rb;
-
-    Vector3 bulletForce = new Vector3(-50, 100);
-    void Awake()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.AddForce(bulletForce);
+        Destroy(gameObject);
     }
 }

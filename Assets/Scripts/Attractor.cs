@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour
 {
-    public static float G = 2f;
+    public static float G = 5f;
 
     public Rigidbody2D rb;
 
