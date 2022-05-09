@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 1994193913870943337}
   - component: {fileID: 1994193913870943334}
   - component: {fileID: 1994193913870943335}
-  - component: {fileID: 1807276739107139325}
+  - component: {fileID: 5491215644570721852}
   m_Layer: 0
   m_Name: ProtoBullet
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4d4940d1658b042b6f28cb038553ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  G: 5
   rb: {fileID: 1994193913870943334}
 --- !u!50 &1994193913870943334
 Rigidbody2D:
@@ -146,14 +147,15 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.02734375, y: 0.25}
-      - {x: -0.5, y: 0.02734375}
-      - {x: -0.5, y: -0.015625}
-      - {x: -0.0703125, y: -0.25}
-      - {x: 0.02734375, y: -0.25}
-      - {x: 0.5, y: -0.02734375}
+      - {x: -0.11828749, y: 0.19948865}
+      - {x: -0.12202926, y: -0.18776985}
+      - {x: -0.012307443, y: -0.24625772}
+      - {x: 0.017987913, y: -0.24438655}
+      - {x: 0.48877412, y: -0.019859187}
+      - {x: 0.5037423, y: 0.00093554705}
       - {x: 0.5, y: 0.015625}
-      - {x: 0.0703125, y: 0.25}
---- !u!114 &1807276739107139325
+      - {x: 0.0123068765, y: 0.25}
+--- !u!114 &5491215644570721852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,6 +164,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994193913870943332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce649ef2445de024cbb9c2c22333511c, type: 3}
+  m_Script: {fileID: 11500000, guid: b56ef4cf216c3014993f3aac37712f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 25
+  lifespan: 5

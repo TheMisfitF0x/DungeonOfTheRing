@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2695517102542515770}
   m_Layer: 0
   m_Name: ColumnPrototype
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4d4940d1658b042b6f28cb038553ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  G: 5
   rb: {fileID: 2695517102542515770}
 --- !u!58 &2695517102542515771
 CircleCollider2D:
