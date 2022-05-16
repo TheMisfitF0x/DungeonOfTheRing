@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1994193913870943339}
   - component: {fileID: 1994193913870943336}
   - component: {fileID: 1994193913870943337}
+  - component: {fileID: 5491215644570721852}
   - component: {fileID: 1994193913870943334}
   - component: {fileID: 1994193913870943335}
-  - component: {fileID: 5491215644570721852}
   m_Layer: 7
   m_Name: ProtoBullet
   m_TagString: Projectile
@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994193913870943332}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.65, y: 0.36000025, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 7.647775, y: 0.36266267, z: 0}
   m_LocalScale: {x: 0.8378942, y: 0.8378942, z: 0.8378942}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1994193913870943336
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,8 +98,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4d4940d1658b042b6f28cb038553ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  G: 5
+  G: 2
   rb: {fileID: 1994193913870943334}
+--- !u!114 &5491215644570721852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994193913870943332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56ef4cf216c3014993f3aac37712f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  lifespan: 50
 --- !u!50 &1994193913870943334
 Rigidbody2D:
   serializedVersion: 4
@@ -131,7 +145,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 2
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -155,17 +169,3 @@ PolygonCollider2D:
       - {x: 0.5037423, y: 0.00093554705}
       - {x: 0.50156844, y: 0.0046446584}
       - {x: 0.0123068765, y: 0.25}
---- !u!114 &5491215644570721852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994193913870943332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b56ef4cf216c3014993f3aac37712f9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 25
-  lifespan: 5

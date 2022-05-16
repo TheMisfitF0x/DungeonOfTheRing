@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    public Weapon weapon;
 
-    public float bulletForce = 20f;
+    bool holdingTrigger = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(weapon.canHoldTrigger)
         {
-            Shoot();
+            if(Input.GetButtonDown("Fire1"))
+            {
+                holdingTrigger = true;
+            }
+            else if (Input.GetButtonUp("Fire1"))
+            {
+                holdingTrigger = false;
+            }
+
+            if(holdingTrigger)
+            {
+                weapon.Shoot();
+            }
         }
-    }
-
-    void Shoot()
-    {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        else
+        {
+            if(Input.GetButtonDown("Fire1"))
+            {
+                weapon.Shoot();
+            }
+        }
     }
 }

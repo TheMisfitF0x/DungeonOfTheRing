@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy") == true || (collision.gameObject.CompareTag("Player") == true && Time.time > timeAtSpawn + .1f))
         {
