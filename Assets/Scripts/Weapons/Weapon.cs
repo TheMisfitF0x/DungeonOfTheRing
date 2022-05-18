@@ -9,9 +9,11 @@ public class Weapon : MonoBehaviour
     public Transform muzzle;
     public bool canHoldTrigger;
     public float fireDelay;
+    public bool isPickedUp = false;
+
 
     private float lastShotTime = 0;
-
+    private Collider2D pickupRadius;
 
     public void Shoot()
     {

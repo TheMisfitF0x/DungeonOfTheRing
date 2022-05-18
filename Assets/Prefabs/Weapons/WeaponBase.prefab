@@ -122,8 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1428744484462625717}
   - component: {fileID: 8751088984649098708}
+  - component: {fileID: 348527645522347594}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: WeaponBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +159,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1994193913870943332, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
-  muzzleVelocity: 40
+  muzzleVelocity: 15
   muzzle: {fileID: 6055465850851029824}
   canHoldTrigger: 0
   fireDelay: 0.3
+  isPickedUp: 0
+--- !u!58 &348527645522347594
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124961953706768274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.0931501

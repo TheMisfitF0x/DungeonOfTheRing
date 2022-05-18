@@ -5,6 +5,10 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public Weapon weapon;
+    public GameObject weaponPoint;
+
+    private float lastWeaponPickup = 0f;
+    private float weaponPickupDelay =  .5f;
 
     bool holdingTrigger = false;
 
@@ -34,5 +38,37 @@ public class Shooting : MonoBehaviour
                 weapon.Shoot();
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Weapon")==true)
+        {
+            if(collision.gameObject.GetComponent<Weapon>().isPickedUp == false && Time.time >= lastWeaponPickup + weaponPickupDelay)
+            {
+                pickupWeapon(collision.gameObject);
+            }
+        }
+    }
+
+    private void pickupWeapon(GameObject weaponToPickup)
+    {
+        weaponToPickup.transform.SetParent(weaponPoint.transform);
+
+        if(weapon != null)
+        {
+            dropWeapon();
+        }
+
+        weapon = weaponToPickup.GetComponent<Weapon>();
+
+        weapon.transform.SetPositionAndRotation(weaponPoint.transform.position, weaponPoint.transform.rotation);
+    }
+
+    private void dropWeapon()
+    {
+        weapon.transform.SetParent(null);
+        weapon = null;
+        lastWeaponPickup = Time.time;
     }
 }
