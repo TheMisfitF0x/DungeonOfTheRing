@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4d4940d1658b042b6f28cb038553ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  G: 10
+  ignoreAttractions: 0
+  attractsBullets: 1
   rb: {fileID: 2695517102542515770}
 --- !u!50 &2695517102542515770
 Rigidbody2D:

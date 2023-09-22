@@ -12,11 +12,12 @@ public class Weapon : MonoBehaviour
     public bool isPickedUp = false;
 
 
-    private float lastShotTime = 0;
-    private Collider2D pickupRadius;
+    protected float lastShotTime = 0;
+    protected Collider2D pickupRadius;
 
-    public void Shoot()
+    public virtual void Shoot()
     {
+        Debug.Log("Shooting from standard prefab");
         if (Time.time >= lastShotTime + fireDelay)
         {
             GameObject bullet = Instantiate(projectile, muzzle.position, muzzle.rotation);
