@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994193913870943334, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
       propertyPath: m_Mass
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1994193913870943334, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
       propertyPath: m_UseAutoMass

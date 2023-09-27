@@ -106,6 +106,6 @@ MonoBehaviour:
   canHoldTrigger: 0
   fireDelay: 0.7
   isPickedUp: 0
-  projectilesPerShot: 3
-  uniformDistroAngle: 1
+  projectileCount: 3
+  uniformDistroAngle: 0
   spread: 40
