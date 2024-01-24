@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Damageable : MonoBehaviour
 {
-    public float health = 50;
-    public Slider healthBar;
+    private float health;
+    private Slider healthBar;
     private UIManager uiManager;
 
     private void Start()

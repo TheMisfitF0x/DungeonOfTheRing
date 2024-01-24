@@ -16,7 +16,7 @@ public class ChaseCamScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 targetPos = object2Follow.transform.position;
-        this.transform.position = Vector2.MoveTowards(this.transform.position, targetPos, speed);
+        Vector3 targetPos = new Vector3(object2Follow.transform.position.x, object2Follow.transform.position.y, -3);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPos, speed);
     }
 }

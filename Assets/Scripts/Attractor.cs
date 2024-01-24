@@ -47,5 +47,5 @@ public class Attractor : MonoBehaviour
         rbToAttract.AddForce(force);
     }
 
-
+    
 }
