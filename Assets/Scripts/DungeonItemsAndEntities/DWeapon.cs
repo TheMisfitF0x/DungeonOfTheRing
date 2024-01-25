@@ -6,7 +6,7 @@ public class DWeapon : MonoBehaviour
 {
     public GameObject projectile;
     public float muzzleVelocity;
-    public Transform muzzle;
+    private Transform muzzlePoint;
     public bool canHoldTrigger;
     public float fireDelay;
     public bool isPickedUp = false;
@@ -20,10 +20,10 @@ public class DWeapon : MonoBehaviour
         Debug.Log("Shooting from standard prefab");
         if (Time.time >= lastShotTime + fireDelay)
         {
-            GameObject bullet = Instantiate(projectile, muzzle.position, muzzle.rotation);
+            GameObject bullet = Instantiate(projectile, muzzlePoint.position, muzzlePoint.rotation);
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(muzzle.up * muzzleVelocity, ForceMode2D.Impulse);
+            rb.AddForce(muzzlePoint.up * muzzleVelocity, ForceMode2D.Impulse);
 
             lastShotTime = Time.time;
         }
