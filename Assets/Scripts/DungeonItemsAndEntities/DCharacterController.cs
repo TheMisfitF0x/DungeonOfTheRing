@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DCharacterController : MonoBehaviour, Damageable
 {
@@ -9,12 +10,17 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
+    private UIManager uiMan;
+    private Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        uiMan = GameObject.Find("UIManager").GetComponent<UIManager>();
         myWeapon = this.gameObject.GetComponentInChildren<DWeapon>();
+        if (this.CompareTag("Enemy")) healthBar = this.transform.Find("Canvas").Find("HealthBar").GetComponent<Slider>();
+        print(healthBar);
     }
 
     // Update is called once per frame
@@ -60,7 +66,7 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     void ShootMyWeapon(ShootCommand command)
     {
-        myWeapon.Shoot();//Is this necessary? Probably not, but i doubt it's gonna break things.
+        if(myWeapon != null) myWeapon.Shoot();//Is this necessary? Probably not, but i doubt it's gonna break things.
     }
 
     public void ReceiveDamage(DamageCommand command) 
@@ -70,8 +76,12 @@ public class DCharacterController : MonoBehaviour, Damageable
             this.HealDamage(command.damage * -1); //Negative damage will trigger healing on living beings.
         else
         {
-
+            health -= command.damage;
+            if (this.CompareTag("Player")) uiMan.setPlayerHealth(health); //If a player, inform the UIManager to update special Health Bar
+            else if (this.CompareTag("Enemy")) healthBar.value = health; //If an enemy, update the local health slider.
         }
+
+        if (health <= 0) Die();
     }
 
     private void HealDamage(float incomingHeal)
@@ -81,6 +91,6 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     public void Die()
     {
-
+        Destroy(gameObject); //Simple and easy remove for now.
     }
 }
