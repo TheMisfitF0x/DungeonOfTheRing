@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428744484462625717}
   - component: {fileID: 348527645522347594}
+  - component: {fileID: 1604907295093002412}
   m_Layer: 0
   m_Name: WeaponBase
   m_TagString: Weapon
@@ -161,3 +162,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.0931501
+--- !u!114 &1604907295093002412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124961953706768274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4256253a91ae64c8199ca07a11bd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1994193913870943332, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
+  muzzleVelocity: 2
+  canHoldTrigger: 0
+  fireDelay: 1
+  isPickedUp: 0

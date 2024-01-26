@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy") == true || (collision.gameObject.CompareTag("Player") == true && Time.time > timeAtSpawn + .1f))
         {
-            collision.gameObject.GetComponent<Damageable>().receiveDamage(damage);
+            //collision.gameObject.GetComponent<Damageable>().receiveDamage(damage);
             Destroy(gameObject);
         }
         else if(collision.gameObject.CompareTag("Wall")==true)

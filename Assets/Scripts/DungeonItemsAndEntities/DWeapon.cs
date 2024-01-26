@@ -14,6 +14,10 @@ public class DWeapon : MonoBehaviour
 
     protected float lastShotTime = 0;
     protected Collider2D pickupRadius;
+    private void Start()
+    {
+        muzzlePoint = transform.Find("MuzzlePoint");
+    }
 
     public virtual void Shoot()
     {

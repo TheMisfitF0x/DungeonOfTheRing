@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class CPlayerInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Vector2 movementDir;
+    Vector2 mousePos;
 
+    private DCharacterController cc;
+
+    private Camera cam;
+
+    private void Start()
+    {
+        cc = this.GetComponent<DCharacterController>();
+        cam = GameObject.Find("MainCamera").GetComponent<Camera>();
+        print("I'm alive");
+    }
     // Update is called once per frame
     void Update()
     {
+        //Input
+        movementDir.x = Input.GetAxis("Horizontal");
+        movementDir.y = Input.GetAxis("Vertical");
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         
+        cc.ExecuteCommand(new MoveCommand(movementDir, mousePos)); //Maybe redo this so it isn't sending a command every frame? idk. Stuff's fast anyhow.
+
+        if (cc.myWeapon.canHoldTrigger)//If the weapon has an autoTrigger,
+        {
+            if (Input.GetButton("Fire1")) cc.ExecuteCommand(new ShootCommand()); //Issue a shoot command every frame the fire button is held.
+        }
+        else
+        {
+            if(Input.GetButtonDown("Fire1")) cc.ExecuteCommand(new ShootCommand()); //Otherwise, only listen for trigger down, so it the trigger must be reset before firing again.
+        }
+
     }
 }

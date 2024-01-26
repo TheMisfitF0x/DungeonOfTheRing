@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 864821715932800643}
   - component: {fileID: 864821715932800644}
-  - component: {fileID: 864821715932800645}
   - component: {fileID: 864821715932800646}
   - component: {fileID: 4932314032891717541}
-  - component: {fileID: 9080979331929459714}
+  - component: {fileID: 2457923555135197126}
+  - component: {fileID: 2116106583432311395}
   m_Layer: 7
   m_Name: Enemy Prototype
   m_TagString: Enemy
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &864821715932800645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864821715932800647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0638b7459bd2242a83df5400d48912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 50
-  healthBar: {fileID: 7320910846944196832}
 --- !u!61 &864821715932800646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9080979331929459714
+--- !u!114 &2457923555135197126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +143,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 864821715932800647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1224452f39bd54a87e8595264131c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a5cc36a01b845343a5fcbef58f1cb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+--- !u!114 &2116106583432311395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864821715932800647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abb88592c78357499ecbf60894b230f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6793153346314214252
@@ -386,14 +385,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8206263616933834222, guid: e1ce12d2cba76bc41a0113aa75eb64fe, type: 3}
   m_PrefabInstance: {fileID: 1475941422088852751}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7320910846944196832 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8206263616933834223, guid: e1ce12d2cba76bc41a0113aa75eb64fe, type: 3}
-  m_PrefabInstance: {fileID: 1475941422088852751}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
