@@ -16,11 +16,11 @@ public class DCharacterController : MonoBehaviour, Damageable
     // Start is called before the first frame update
     void Start()
     {
+        //Find all the things.
         rb = this.GetComponent<Rigidbody2D>();
         uiMan = GameObject.Find("UIManager").GetComponent<UIManager>();
         myWeapon = this.gameObject.GetComponentInChildren<DWeapon>();
-        if (this.CompareTag("Enemy")) healthBar = this.transform.Find("Canvas").Find("HealthBar").GetComponent<Slider>();
-        print(healthBar);
+        if (this.CompareTag("Enemy")) healthBar = this.transform.Find("Canvas").Find("HealthBar").GetComponent<Slider>(); //If enemy, grab the local healthbar
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     public void ExecuteCommand(Command command)
     {
-        switch (command.type)
+        switch (command.type)//Upon receiving a command, check itss type and route to the appropriate method.
         {
             case CommandType.Move:
                 Move(command as MoveCommand);
@@ -58,8 +58,10 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     private void Move(MoveCommand command)
     {
-        //Movement
+        //Set velocity to direction at speed
         rb.velocity = command.moveDirection * moveSpeed;
+
+        //Rotate the character to look at the mouse on the screen.
         Vector2 lookDir = command.mousePosition - rb.position;
         rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
     }
