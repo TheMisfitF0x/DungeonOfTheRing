@@ -77,16 +77,18 @@ public class DCharacterController : MonoBehaviour, Damageable
         else
         {
             health -= command.damage;
-            if (this.CompareTag("Player")) uiMan.setPlayerHealth(health); //If a player, inform the UIManager to update special Health Bar
-            else if (this.CompareTag("Enemy")) healthBar.value = health; //If an enemy, update the local health slider.
         }
+
+        if (this.CompareTag("Player")) uiMan.setPlayerHealth(health); //If a player, inform the UIManager to update special Health Bar
+        else if (this.CompareTag("Enemy")) healthBar.value = health; //If an enemy, update the local health slider.
 
         if (health <= 0) Die();
     }
 
     private void HealDamage(float incomingHeal)
     {
-
+        //Do the healy thing. For now...
+        health += incomingHeal;
     }
 
     public void Die()
