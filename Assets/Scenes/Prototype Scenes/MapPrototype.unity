@@ -620,6 +620,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4986512041173705647, guid: 7c04da006e4054144981d16ee8667039, type: 3}
+      propertyPath: m_AngularDrag
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8984396388098081298, guid: 7c04da006e4054144981d16ee8667039, type: 3}
       propertyPath: muzzleVelocity
       value: 10
