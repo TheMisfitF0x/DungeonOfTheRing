@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-interface Damageable
+public interface Damageable
 { 
     void ReceiveDamage(DamageCommand command); //Anything that can take damage must have some way to take a damage value and apply it to itself.
     

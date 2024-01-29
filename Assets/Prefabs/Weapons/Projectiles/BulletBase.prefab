@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreAttractions: 0
   attractsBullets: 0
-  rb: {fileID: 1994193913870943334}
 --- !u!50 &1994193913870943334
 Rigidbody2D:
   serializedVersion: 4
@@ -169,4 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
-  lifespan: 5
+  lifespan: 10

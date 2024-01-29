@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4d4940d1658b042b6f28cb038553ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreAttractions: 0
+  ignoreAttractions: 1
   attractsBullets: 1
   rb: {fileID: 2695517102542515770}
 --- !u!50 &2695517102542515770
