@@ -18,6 +18,7 @@ public class Attractor : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0; //Doublecheck, make sure unity isn't being mean to me.
     }
 
     void FixedUpdate()
