@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DProjectile : MonoBehaviour, Detonateable
+public class DProjectile : MonoBehaviour
 {
     public float damage = 25f;
     public float lifespan = 5f;
@@ -24,7 +24,7 @@ public class DProjectile : MonoBehaviour, Detonateable
 
     private void OnTriggerEnter2D(Collider2D collision) //When I hit a thing
     {
-
+        print("Oof");
         if (Time.time > timeAtSpawn + .1f && collision.GetComponent<Damageable>() != null)
         {
             ImpactDetonate(collision.GetComponent<Damageable>());
@@ -36,18 +36,18 @@ public class DProjectile : MonoBehaviour, Detonateable
     }
 
     //Detonate types
-    public void ImpactDetonate(Damageable target)
+    public virtual void ImpactDetonate(Damageable target)
     {
         target.ReceiveDamage(new DamageCommand(damage, Vector3.zero));
         Destroy(gameObject);
     }
 
-    public void TimeOutDetonate()
+    public virtual void TimeOutDetonate()
     {
         Destroy(gameObject);
     }
 
-    public void SecondaryFireDetonate()
+    public virtual void SecondaryFireDetonate()
     {
         //There is nothing for this guy.
     }

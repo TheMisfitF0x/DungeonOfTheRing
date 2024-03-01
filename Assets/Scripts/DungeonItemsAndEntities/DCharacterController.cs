@@ -56,6 +56,11 @@ public class DCharacterController : MonoBehaviour, Damageable
         }
     }
 
+    public void Repulse(RepulseCommand command)
+    {
+
+    }
+
     private void Move(MoveCommand command)
     {
         //Set velocity to direction at speed
