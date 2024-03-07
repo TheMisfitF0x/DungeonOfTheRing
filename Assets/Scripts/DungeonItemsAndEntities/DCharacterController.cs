@@ -45,6 +45,7 @@ public class DCharacterController : MonoBehaviour, Damageable
                 break;
 
             case CommandType.Repulse:
+                Repulse(command as RepulseCommand);
                 break;
 
             case CommandType.Damage: //If for some reason I go through execute, this is here to catch me. ReceiveDamage is, for the moment, public to ensure that it can be casted on non CC objects.
@@ -58,7 +59,8 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     public void Repulse(RepulseCommand command)
     {
-
+        print("Triggering Repulse");
+        rb.AddForce(command.pulseDirection * command.pulseStrength, ForceMode2D.Impulse);
     }
 
     private void Move(MoveCommand command)

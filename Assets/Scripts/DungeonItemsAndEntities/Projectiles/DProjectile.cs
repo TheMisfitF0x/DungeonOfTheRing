@@ -7,7 +7,7 @@ public class DProjectile : MonoBehaviour
     public float damage = 25f;
     public float lifespan = 5f;
 
-    private float timeAtSpawn;
+    protected float timeAtSpawn;
 
     private void Awake()
     {
@@ -24,7 +24,6 @@ public class DProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //When I hit a thing
     {
-        print("Oof");
         if (Time.time > timeAtSpawn + .1f && collision.GetComponent<Damageable>() != null)
         {
             ImpactDetonate(collision.GetComponent<Damageable>());

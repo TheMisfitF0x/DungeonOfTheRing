@@ -8,12 +8,11 @@ public class RepulseCommand : Command
     public Vector3 pulseDirection;
     public float pulseStrength;
     public float pulseDurationMS; //Duration of the impulse in milliseconds. 0 basically stands for an instant shove. 
-    public RepulseCommand(Vector3 direction, float strength, float duration)
+    public RepulseCommand(Vector3 direction, float strength)
     {
         type = CommandType.Repulse;
 
         pulseDirection = direction;
         pulseStrength = strength;
-        pulseDurationMS = duration;
     }
 }

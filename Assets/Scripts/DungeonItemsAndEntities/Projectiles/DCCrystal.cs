@@ -13,7 +13,6 @@ public class DCCrystal : DProjectile
     {
         target.ReceiveDamage(new DamageCommand(damage, Vector3.zero));
         TimeOutDetonate();
-        Destroy(gameObject);
     }
 
     public override void TimeOutDetonate()
