@@ -12,6 +12,7 @@ public class DShotgun : DWeapon
 
     //In degrees
     public float spread = 40;
+
     public override void Shoot()
     {
         if (Time.time >= lastShotTime + fireDelay)

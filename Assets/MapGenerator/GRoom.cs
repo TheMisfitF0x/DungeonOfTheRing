@@ -6,16 +6,26 @@ public class GRoom : MonoBehaviour
 {
     // All openings in this prefab. Accumulated upon awakening
     private GDungeon dungeon;
-    private GOpening myOpenings;
+    private List<GOpening> myOpenings;
 
     // Game Object whose children are box colliders, iterate through these to determine if room valid.
-    private List<Collider2D> validators;
+    private List<GValidator> validators;
     private RoomState roomState;
 
     public void Awake()
     {
-        //Get all GOpenings
+        //Get all GOpenings (They are children)
+        foreach(GOpening opening in gameObject.GetComponentsInChildren<GOpening>())
+        {
+            myOpenings.Add(opening);
+        }
+
         //Get my colliders
+        foreach (GValidator validator in gameObject.GetComponentsInChildren<GValidator>())
+        {
+            validators.Add(validator);
+        }
+
         //Get the dungeon
     }
 
