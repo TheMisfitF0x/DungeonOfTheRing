@@ -10,6 +10,7 @@ public class DWeapon : MonoBehaviour
     public bool canHoldTrigger;
     public float fireDelay;
     public bool isPickedUp = false;
+    public DCharacterController holdingCharacter;
 
 
     protected float lastShotTime = 0;
@@ -31,5 +32,10 @@ public class DWeapon : MonoBehaviour
 
             lastShotTime = Time.time;
         }
+    }
+
+    public virtual void AltShoot()
+    {
+        //Overridable for future weapons
     }
 }

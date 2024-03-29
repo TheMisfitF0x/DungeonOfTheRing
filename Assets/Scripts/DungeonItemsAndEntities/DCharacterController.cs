@@ -75,7 +75,11 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     void ShootMyWeapon(ShootCommand command)
     {
-        if(myWeapon != null) myWeapon.Shoot();//Is this necessary? Probably not, but i doubt it's gonna break things.
+        if (myWeapon != null)
+        {
+            if (!command.isSecondaryFire) myWeapon.Shoot();
+            else myWeapon.AltShoot();
+        }//Is this necessary? Probably not, but i doubt it's gonna break things.
     }
 
     public void ReceiveDamage(DamageCommand command) 

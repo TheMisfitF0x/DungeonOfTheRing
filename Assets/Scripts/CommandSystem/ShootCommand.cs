@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ShootCommand : Command
 {
-    public ShootCommand()
+    public bool isSecondaryFire;
+    public ShootCommand(bool isSecondaryFire)
     {
         type = CommandType.Shoot;
+        this.isSecondaryFire = isSecondaryFire;
     }
 }
