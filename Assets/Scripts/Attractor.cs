@@ -29,7 +29,7 @@ public class Attractor : MonoBehaviour
         //For every attractor, check if should attract, then attract
         foreach(Attractor attractor in attractors)
         {
-            if (attractor != this && attractor.ignoreAttractions == false)
+            if (attractor != this && attractor.ignoreAttractions == false && attractor.enabled)
             {
                 //If this attractor attracts bullets or the object is not a bullet, attract it.
                 if ((attractor.CompareTag("Projectile") && this.attractsBullets) || !attractor.CompareTag("Projectile"))

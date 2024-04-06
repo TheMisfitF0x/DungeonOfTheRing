@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4018066820925599567, guid: f305a75ee7ec0e54c9f650243d5c11dc, type: 3}
-  muzzleVelocity: 10
+  muzzleVelocity: 20.43
   canHoldTrigger: 0
   fireDelay: 0.99
   isPickedUp: 0
