@@ -34,6 +34,8 @@ public class GameplayManager : MonoBehaviour
         //When Objective completed, open exit.
         //On entering exit trigger:
         //ChamberEnd();
+
+        //TODO This is bad, implement observer pattern.
     }
 
     public void ChamberEnd()

@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class GValidator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Collider2D thisCollider;
+    public void Awake()
     {
-        
+        thisCollider = GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsValid()
     {
-        
+        Collider2D[] overlappingColliders = new Collider2D[100];
+        thisCollider.OverlapCollider(new ContactFilter2D().NoFilter(), overlappingColliders);
+
+        print(overlappingColliders);
+        foreach (Collider2D collider in overlappingColliders)
+        {
+            print(collider);
+
+
+            if (collider.CompareTag("Wall") == true)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

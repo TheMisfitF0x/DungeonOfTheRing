@@ -25,8 +25,7 @@ public class CPlayerInput : MonoBehaviour
         movementDir.y = Input.GetAxis("Vertical");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        Attractor attractor = GetComponent<Attractor>();
-        if(attractor == null || !attractor.enabled)
+        
         cc.ExecuteCommand(new MoveCommand(movementDir, mousePos)); //Maybe redo this so it isn't sending a command every frame? idk. Stuff's fast anyhow.
 
         if (cc.myWeapon.canHoldTrigger)//If the weapon has an autoTrigger,

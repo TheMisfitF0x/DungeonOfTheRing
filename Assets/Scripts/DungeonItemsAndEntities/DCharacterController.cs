@@ -66,9 +66,13 @@ public class DCharacterController : MonoBehaviour, Damageable
     private void Move(MoveCommand command)
     {
         //Set velocity to direction at speed
-        rb.velocity = command.moveDirection * moveSpeed;
+        Attractor attractor = GetComponent<Attractor>();
+        if (attractor == null || !attractor.enabled)
+            rb.velocity = command.moveDirection * moveSpeed;
 
         //Rotate the character to look at the mouse on the screen.
+
+
         Vector2 lookDir = command.mousePosition - rb.position;
         rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
     }

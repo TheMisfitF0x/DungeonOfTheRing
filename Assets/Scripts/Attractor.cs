@@ -37,8 +37,8 @@ public class Attractor : MonoBehaviour
             }
         }
 
-        
-        rb.rotation = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        if(!rb.gameObject.GetComponent<DCharacterController>())
+            rb.rotation = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
     }
 
     void Attract(Attractor objToAttract)

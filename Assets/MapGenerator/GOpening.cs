@@ -4,22 +4,67 @@ using UnityEngine;
 
 public class GOpening : MonoBehaviour
 {
-    public GRoom connectedRoom;
-    public OpeningConnection connectionState;
-    private List<GRoom> spawnableRooms; 
-
+    public OpeningConnection connectionState = OpeningConnection.None;
+    private GRoom myRoom;
+    private List<GameObject> spawnableRooms;
+    
     public void Awake()
     {
         //Get the list of spawnable rooms from assets or the dungeon
+        spawnableRooms = GameObject.Find("DungeonStart").GetComponent<GDungeon>().spawnableRooms;
+        myRoom = GetComponentInParent<GRoom>();
     }
 
-    public bool SpawnRoom()
+    public GRoom SpawnRoom()
     {
-        //Generate a random int within the indecies of the current spawnable list
-        //Attempt to the room and have it self-validate
-        //If it fails, order it to KILL ITSELF and try the next index, wrapping back around if need be.
-        //If it successfully builds a room, return true. Else if it goes through the whole list without success return false.
-        return true;
+        print("Ok, here I go!");
+        bool allRoomsTried = false;
+        //Select a random index within length
+        // Check if the list length is valid
+        // Generate a random index within the range of the list length
+        int randomIndex = Random.Range(0, spawnableRooms.Count);
+        print("Picked a starting point");
+        int initialIndex = randomIndex;
+        while (!allRoomsTried)
+        {
+            GRoom newRoom = Instantiate(spawnableRooms[randomIndex], this.transform.position, this.transform.rotation).GetComponent<GRoom>();
+            print("New Room Created!");
+            List<GOpening> newOpenings = newRoom.myOpenings;
+
+            foreach (GOpening newOpening in newOpenings)
+            {
+                // Calculate the position and rotation of the next room relative to the current room
+                Vector3 offset = newOpening.transform.position - this.transform.position;
+                Quaternion rotationOffset = Quaternion.FromToRotation(newOpening.transform.up, -this.transform.up);
+
+                // Position and rotate the next room
+                newRoom.transform.position = myRoom.transform.position + offset;
+                newRoom.transform.rotation = myRoom.transform.rotation * rotationOffset;
+
+                if (newRoom.ValidateExistence() == RoomState.Valid)
+                {
+                    print("Welcome to the dungeon!");
+                    return newRoom;
+                }
+            }
+            randomIndex++;
+            if(randomIndex == spawnableRooms.Count)
+            {
+                randomIndex = 0;
+            }
+
+            if(randomIndex == initialIndex)
+            {
+                allRoomsTried = true;
+            }
+        }
+        print("No room appears to work here...");
+        return null;
+    }
+
+    public void Skip()
+    {
+        //Does nothing, opening is skipped so that the room can proceed. Leaving this open in case I decide I need to report back somehow.
     }
 }
 
