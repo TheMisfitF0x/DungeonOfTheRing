@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 688983911386238161, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
+      propertyPath: m_TagString
+      value: Validator
+      objectReference: {fileID: 0}
+    - target: {fileID: 3879592219215675718, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
+      propertyPath: m_TagString
+      value: Validator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063901364769479785, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
+      propertyPath: m_TagString
+      value: Validator
+      objectReference: {fileID: 0}
     - target: {fileID: 4290902904850995377, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -173,6 +185,14 @@ PrefabInstance:
     - target: {fileID: 4290902904850995377, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6326344568487127750, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
+      propertyPath: m_TagString
+      value: Validator
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406918800403105019, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
+      propertyPath: m_TagString
+      value: Validator
       objectReference: {fileID: 0}
     - target: {fileID: 8445012464956933409, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
       propertyPath: m_Name

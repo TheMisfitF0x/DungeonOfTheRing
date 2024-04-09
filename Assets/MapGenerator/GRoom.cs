@@ -14,7 +14,7 @@ public class GRoom : MonoBehaviour
     private bool noMoreRooms = false;
     public void Awake()
     {
-        GDungeon dungeon = GameObject.Find("DungeonStart").GetComponent<GDungeon>();
+        dungeon = GameObject.Find("DungeonStart").GetComponent<GDungeon>();
 
         //Get all GOpenings (They are children)
         foreach(GOpening opening in gameObject.GetComponentsInChildren<GOpening>())
@@ -32,16 +32,17 @@ public class GRoom : MonoBehaviour
 
     public RoomState ValidateExistence()
     {
+        //print("Checking" + validators.Count + " validators...");
         //Detect collisions, return RoomState.Valid if none, RoomState.Invalid otherwise
         foreach(GValidator validator in validators)
         {
             if(!validator.IsValid())
             {
-                print("Room Invalid");
+                //print("Room Invalid here");
                 return RoomState.Invalid;
             }
         }
-        print("Room Valid");
+        //print("Room Valid");
         return RoomState.Valid;
     }
 

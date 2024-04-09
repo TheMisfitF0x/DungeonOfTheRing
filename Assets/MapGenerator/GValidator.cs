@@ -20,8 +20,10 @@ public class GValidator : MonoBehaviour
         {
             print(collider);
 
+            if (collider == null)
+                break;
 
-            if (collider.CompareTag("Wall") == true)
+            if (collider.CompareTag("Wall") == true || collider.CompareTag("Validator") == true)
             {
                 return false;
             }

@@ -13,14 +13,13 @@ public class GDungeon : MonoBehaviour
     {
         startingRoom = GetComponent<GRoom>();
         print(startingRoom);
-        InitMapGeneration();
+        //InitMapGeneration();
     }
 
     public bool InitMapGeneration()
     {
         //Spawn the first room if none exists, then send a signal to that room (or the current starting room) to begin iterating through openings.
         startingRoom.GenerateRoomsFromOpen();
-        print("Rooms Generating...");
         return true;
     }
 
@@ -28,8 +27,18 @@ public class GDungeon : MonoBehaviour
     {
         //Checks the provided room and the current dungeon statistics. If this is the last standard room, return true and run AddFinalRoom().
         //Else, return false to signal the room to spawn another room.
-        print("Yeah, we're done.");
-        return true;
+        spawnedRooms.Add(room2Add);
+        if(spawnableRooms.Count == roomsToSpawn)
+        {
+            print("Yeah, we're done.");
+            AddFinalRoom();
+            return true;
+        }
+        else
+        {
+            print("Nah, keep going");
+            return false;
+        }
     }
 
     private bool AddFinalRoom()
