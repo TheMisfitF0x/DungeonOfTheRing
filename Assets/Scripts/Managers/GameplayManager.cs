@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class GameplayManager : MonoBehaviour
 {
+
+    public void Start()
+    {
+
+    }
     public void Update()
     {
         //if chamber is active,

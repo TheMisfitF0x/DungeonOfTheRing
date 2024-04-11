@@ -14,7 +14,7 @@ public class CPlayerInput : MonoBehaviour
     private void Start()
     {
         cc = this.GetComponent<DCharacterController>();
-        cam = GameObject.Find("MainCamera").GetComponent<Camera>();
+        cam = GameObject.Find("Camera").GetComponent<Camera>();
         print("I'm alive");
     }
     // Update is called once per frame

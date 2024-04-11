@@ -39,10 +39,12 @@ public class GRoom : MonoBehaviour
             if(!validator.IsValid())
             {
                 //print("Room Invalid here");
+                roomState = RoomState.Invalid;
                 return RoomState.Invalid;
             }
         }
         //print("Room Valid");
+        roomState = RoomState.Valid;
         return RoomState.Valid;
     }
 
