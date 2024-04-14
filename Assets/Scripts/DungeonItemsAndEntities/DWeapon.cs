@@ -29,7 +29,6 @@ public class DWeapon : MonoBehaviour
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(muzzlePoint.up * muzzleVelocity, ForceMode2D.Impulse);
-
             lastShotTime = Time.time;
         }
     }

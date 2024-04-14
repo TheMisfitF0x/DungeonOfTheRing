@@ -626,6 +626,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Validator
       objectReference: {fileID: 0}
+    - target: {fileID: 1453946280486708422, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2eb5200994d166b40af92f93afdfd737, type: 2}
     - target: {fileID: 3879592219215675718, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
       propertyPath: m_TagString
       value: Validator
