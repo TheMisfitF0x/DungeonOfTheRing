@@ -716,7 +716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnableRooms:
   - {fileID: 8445012464956933409, guid: 66731fc40e86f9344b0e0652d607fa8a, type: 3}
-  roomsToSpawn: 2
+  roomsToSpawn: 1
 --- !u!114 &1222707841
 MonoBehaviour:
   m_ObjectHideFlags: 0

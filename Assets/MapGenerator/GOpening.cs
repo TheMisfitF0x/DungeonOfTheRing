@@ -5,6 +5,8 @@ using UnityEngine;
 public class GOpening : MonoBehaviour
 {
     public OpeningConnection connectionState = OpeningConnection.None;
+    public OpeningDirection openingDirection;
+    private OpeningDirection desiredDirection;
     private GRoom myRoom;
     private List<GameObject> spawnableRooms;
     
@@ -13,6 +15,22 @@ public class GOpening : MonoBehaviour
         //Get the list of spawnable rooms from assets or the dungeon
         spawnableRooms = GameObject.Find("DungeonStart").GetComponent<GDungeon>().spawnableRooms;
         myRoom = GetComponentInParent<GRoom>();
+
+        switch(openingDirection)
+        {
+            case OpeningDirection.East:
+                desiredDirection = OpeningDirection.West;
+                break;
+            case OpeningDirection.West:
+                desiredDirection = OpeningDirection.East;
+                break;
+            case OpeningDirection.North:
+                desiredDirection = OpeningDirection.South;
+                break;
+            case OpeningDirection.South:
+                desiredDirection = OpeningDirection.North;
+                break;
+        }
     }
 
     public GRoom SpawnRoom()
@@ -26,28 +44,30 @@ public class GOpening : MonoBehaviour
         int initialIndex = randomIndex;
         while (!allRoomsTried)
         {
-            GRoom newRoom = Instantiate(spawnableRooms[randomIndex], this.transform.position, this.transform.rotation).GetComponent<GRoom>();
+            GRoom newRoom = Instantiate(spawnableRooms[randomIndex], this.transform.position, Quaternion.identity).GetComponent<GRoom>();
             print("New Room Created!");
             List<GOpening> newOpenings = newRoom.myOpenings;
             print(newOpenings.Count);
 
             foreach (GOpening newOpening in newOpenings)
             {
-                // Calculate the position and rotation of the next room relative to the current room
-                Vector3 offset = newOpening.transform.position - this.transform.position;
-                Quaternion rotationOffset = Quaternion.FromToRotation(newOpening.transform.right, -this.transform.right);
-
-                // Position and rotate the next room
-                newRoom.transform.position = myRoom.transform.position + offset;
-                newRoom.transform.rotation = myRoom.transform.rotation * rotationOffset;
-
-                if (newRoom.ValidateExistence() == RoomState.Valid)
+                if (newOpening.openingDirection == desiredDirection)
                 {
-                    print("Welcome to the dungeon!");
-                    return newRoom;
+                    // Calculate the position and rotation of the next room relative to the current room
+                    Vector3 offset = newOpening.transform.position - this.transform.position;
+
+
+                    // Position and rotate the next room
+                    newRoom.transform.position = myRoom.transform.position + offset;
+
+                    if (newRoom.ValidateExistence() == RoomState.Valid)
+                    {
+                        print("Welcome to the dungeon!");
+                        return newRoom;
+                    }
+                    else
+                        print("Bad Opening");
                 }
-                else
-                    print("Bad Opening");
             }
             randomIndex++;
             if(randomIndex == spawnableRooms.Count)
@@ -60,7 +80,7 @@ public class GOpening : MonoBehaviour
                 allRoomsTried = true;
             }
             print("This room doesn't work...");
-            Destroy(newRoom);
+            Destroy(newRoom.gameObject);
         }
         print("No room appears to work here...");
         return null;
@@ -77,4 +97,12 @@ public enum OpeningConnection
     Door,
     Wall,
     None
+}
+
+public enum OpeningDirection
+{
+    East,
+    West,
+    North,
+    South
 }
