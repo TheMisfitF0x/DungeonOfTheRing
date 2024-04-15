@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Prototype Scenes/MapPrototype - Copy.unity
+    guid: a2e5919556cd5a4439703f133d995238
   m_configObjects: {}
