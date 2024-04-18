@@ -12,19 +12,19 @@ public class GValidator : MonoBehaviour
 
     public bool IsValid()
     {
+        print("FUCK");
         Collider2D[] overlappingColliders = new Collider2D[100];
         thisCollider.OverlapCollider(new ContactFilter2D().NoFilter(), overlappingColliders);
 
-        print(overlappingColliders);
+        
         foreach (Collider2D collider in overlappingColliders)
         {
-            print(collider);
-
             if (collider == null)
-                break;
+                continue;
 
-            if (collider.CompareTag("Wall") == true || collider.CompareTag("Validator") == true)
+            if (collider.CompareTag("Validator") == true && collider != thisCollider)
             {
+                print("Found " + collider.ToString());
                 return false;
             }
         }

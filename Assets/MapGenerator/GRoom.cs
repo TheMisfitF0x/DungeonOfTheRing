@@ -36,7 +36,7 @@ public class GRoom : MonoBehaviour
         //Detect collisions, return RoomState.Valid if none, RoomState.Invalid otherwise
         foreach(GValidator validator in validators)
         {
-            if(!validator.IsValid())
+            if(!IsValid(validator))
             {
                 //print("Room Invalid here");
                 roomState = RoomState.Invalid;
@@ -83,6 +83,32 @@ public class GRoom : MonoBehaviour
     public void DestroyRoom()
     {
         Destroy(gameObject);
+    }
+
+
+    //--------Validator Commands...--------------------------------
+
+
+    public bool IsValid(GValidator validator)
+    {
+        Collider2D[] overlappingColliders = new Collider2D[100];
+        Collider2D thisCollider = validator.GetComponent<Collider2D>();
+        thisCollider.OverlapCollider(new ContactFilter2D().NoFilter(), overlappingColliders);
+
+
+        foreach (Collider2D collider in overlappingColliders)
+        {
+            if (collider == null)
+                continue;
+
+            if (collider.CompareTag("Validator") == true && collider != thisCollider && !validators.Contains(validator))
+            {
+                print("Found " + collider.ToString());
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 

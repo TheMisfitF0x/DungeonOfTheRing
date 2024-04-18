@@ -36,6 +36,7 @@ public class GOpening : MonoBehaviour
     public GRoom SpawnRoom()
     {
         print("Ok, here I go!");
+        print("I am a " + openingDirection + "-facing opening");
         bool allRoomsTried = false;
         //Select a random index within length
         // Generate a random index within the range of the list length
@@ -44,7 +45,7 @@ public class GOpening : MonoBehaviour
         int initialIndex = randomIndex;
         while (!allRoomsTried)
         {
-            GRoom newRoom = Instantiate(spawnableRooms[randomIndex], this.transform.position, Quaternion.identity).GetComponent<GRoom>();
+            GRoom newRoom = Instantiate(spawnableRooms[randomIndex]).GetComponent<GRoom>();
             print("New Room Created!");
             List<GOpening> newOpenings = newRoom.myOpenings;
             print(newOpenings.Count);
@@ -55,8 +56,7 @@ public class GOpening : MonoBehaviour
                 {
                     // Calculate the position and rotation of the next room relative to the current room
                     Vector3 offset = newOpening.transform.position - this.transform.position;
-
-
+                    print(offset);
                     // Position and rotate the next room
                     newRoom.transform.position = myRoom.transform.position + offset;
 
@@ -68,6 +68,8 @@ public class GOpening : MonoBehaviour
                     else
                         print("Bad Opening");
                 }
+                else
+                    print("Opening facing wrong direction");
             }
             randomIndex++;
             if(randomIndex == spawnableRooms.Count)
@@ -80,7 +82,7 @@ public class GOpening : MonoBehaviour
                 allRoomsTried = true;
             }
             print("This room doesn't work...");
-            Destroy(newRoom.gameObject);
+            newRoom.DestroyRoom();
         }
         print("No room appears to work here...");
         return null;

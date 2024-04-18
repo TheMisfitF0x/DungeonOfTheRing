@@ -7,15 +7,21 @@ public class DProjectile : MonoBehaviour
     public float damage = 25f;
     public float lifespan = 5f;
 
+    private Vector2 startingPos;
+    private bool isOutOfGun;
+
     protected float timeAtSpawn;
 
     private void Awake()
     {
         timeAtSpawn = Time.time;
+        startingPos = transform.position;
     }
 
     private void Update()
     {
+        if (!isOutOfGun && Vector2.Distance(startingPos, transform.position) >= .00005f)
+            isOutOfGun = true;
         if (Time.time > timeAtSpawn + lifespan)
         {
             TimeOutDetonate();
@@ -24,7 +30,7 @@ public class DProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //When I hit a thing
     {
-        if (Time.time > timeAtSpawn + .1f && collision.GetComponent<Damageable>() != null)
+        if (isOutOfGun && collision.GetComponent<Damageable>() != null)
         {
             ImpactDetonate(collision.GetComponent<Damageable>());
         }
