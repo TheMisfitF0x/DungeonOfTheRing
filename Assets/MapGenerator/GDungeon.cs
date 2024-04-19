@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class GDungeon : MonoBehaviour
 {
-    private List<GRoom> spawnedRooms;
+    private List<GRoom> spawnedRooms = new List<GRoom>();
+    private GRoom startingRoom;
     public List<GameObject> spawnableRooms;
     public int roomsToSpawn;
 
     public void Start()
     {
-        spawnedRooms.Add(GetComponent<GRoom>());
-        
+        startingRoom = GetComponent<GRoom>();
+        print(startingRoom);
+
+        GenerateMap();
     }
 
     public bool GenerateMap()
     {
- 
+        print(startingRoom);
         int currentRoomIndex = 0;
-
+        spawnedRooms.Add(startingRoom);
 
         do {
             spawnedRooms[currentRoomIndex].GenerateRoomsFromOpen();
             currentRoomIndex++;
-        } while (currentRoomIndex < spawnedRooms.Count);
+        } while (currentRoomIndex < roomsToSpawn);
         
         return true;
     }
