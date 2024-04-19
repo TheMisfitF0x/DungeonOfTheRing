@@ -736,6 +736,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1797025266442481667, guid: 059efc42f18672048bb028d5ca096184, type: 3}
+      propertyPath: roomsToSpawn
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3367918658762604715, guid: 059efc42f18672048bb028d5ca096184, type: 3}
       propertyPath: m_Name
       value: DungeonStart
@@ -746,11 +750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6855202311332833099, guid: 059efc42f18672048bb028d5ca096184, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.710418
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6855202311332833099, guid: 059efc42f18672048bb028d5ca096184, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.953861
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6855202311332833099, guid: 059efc42f18672048bb028d5ca096184, type: 3}
       propertyPath: m_LocalPosition.z

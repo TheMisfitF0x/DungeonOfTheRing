@@ -50,7 +50,6 @@ public class GRoom : MonoBehaviour
 
     public void GenerateRoomsFromOpen()
     {
-        print("Alright");
         //Iterates through myOpenings and populates each one with either a new room or a closing.
         foreach(GOpening opening in myOpenings)
         {
@@ -72,7 +71,7 @@ public class GRoom : MonoBehaviour
             }
             else
             {
-                print("All done!");
+                print("Skipped Opening");
                 opening.Skip();
             }
         }

@@ -43,28 +43,29 @@ public class GOpening : MonoBehaviour
         //Select a random index within length
         // Generate a random index within the range of the list length
         int randomIndex = Random.Range(0, spawnableRooms.Count);
-        print("Picked a starting point");
         int initialIndex = randomIndex;
         while (!allRoomsTried)
         {
             GRoom newRoom = Instantiate(spawnableRooms[randomIndex]).GetComponent<GRoom>();
-            print("New Room Created!");
             List<GOpening> newOpenings = newRoom.myOpenings;
-            print(newOpenings.Count);
+            print("Testing " + newOpenings.Count + " openings.");
 
             foreach (GOpening newOpening in newOpenings)
             {
                 if (newOpening.openingDirection == desiredDirection)
                 {
                     // Calculate the position and rotation of the next room relative to the current room
-                    Vector3 offset = newOpening.transform.position - this.transform.position;
-                    print(offset);
+                    
+                    Vector3 offset = this.transform.position - newOpening.transform.position;
+                    
+                    print("The offset is" + offset.ToString());
                     // Position and rotate the next room
-                    newRoom.transform.position = myRoom.transform.position + offset;
+                    newRoom.transform.Translate(offset);
 
                     if (newRoom.ValidateExistence() == RoomState.Valid)
                     {
                         print("Welcome to the dungeon!");
+                        connectionState = OpeningConnection.Door;
                         return newRoom;
                     }
                     else

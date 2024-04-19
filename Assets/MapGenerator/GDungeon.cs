@@ -12,21 +12,18 @@ public class GDungeon : MonoBehaviour
     public void Start()
     {
         startingRoom = GetComponent<GRoom>();
-        print(startingRoom);
-
         GenerateMap();
     }
 
     public bool GenerateMap()
     {
-        print(startingRoom);
         int currentRoomIndex = 0;
-        spawnedRooms.Add(startingRoom);
+        startingRoom.GenerateRoomsFromOpen();
 
         do {
             spawnedRooms[currentRoomIndex].GenerateRoomsFromOpen();
             currentRoomIndex++;
-        } while (currentRoomIndex < roomsToSpawn);
+        } while (spawnedRooms.Count < roomsToSpawn);
         
         return true;
     }
