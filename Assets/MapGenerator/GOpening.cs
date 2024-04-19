@@ -6,6 +6,8 @@ public class GOpening : MonoBehaviour
 {
     public OpeningConnection connectionState = OpeningConnection.None;
     public OpeningDirection openingDirection;
+    public GameObject closingPrefab;
+
     private OpeningDirection desiredDirection;
     private GRoom myRoom;
     private List<GameObject> spawnableRooms;

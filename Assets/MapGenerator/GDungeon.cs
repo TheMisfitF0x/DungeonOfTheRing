@@ -5,21 +5,26 @@ using UnityEngine;
 public class GDungeon : MonoBehaviour
 {
     private List<GRoom> spawnedRooms;
-    private GRoom startingRoom;
     public List<GameObject> spawnableRooms;
     public int roomsToSpawn;
 
     public void Start()
     {
-        startingRoom = GetComponent<GRoom>();
-        print(startingRoom);
-        InitMapGeneration();
+        spawnedRooms.Add(GetComponent<GRoom>());
+        
     }
 
-    public bool InitMapGeneration()
+    public bool GenerateMap()
     {
-        //Spawn the first room if none exists, then send a signal to that room (or the current starting room) to begin iterating through openings.
-        startingRoom.GenerateRoomsFromOpen();
+ 
+        int currentRoomIndex = 0;
+
+
+        do {
+            spawnedRooms[currentRoomIndex].GenerateRoomsFromOpen();
+            currentRoomIndex++;
+        } while (currentRoomIndex < spawnedRooms.Count);
+        
         return true;
     }
 

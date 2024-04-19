@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectionState: 2
   openingDirection: 0
+  closingPrefab: {fileID: 7497506532704043512, guid: 9991d87f6f7b0d84285f31ff2d75c4c3, type: 3}
 --- !u!114 &6714450805178618394
 MonoBehaviour:
   m_ObjectHideFlags: 0
