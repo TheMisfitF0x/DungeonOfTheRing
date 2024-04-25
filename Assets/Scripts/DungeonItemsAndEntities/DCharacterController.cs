@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DCharacterController : MonoBehaviour, Damageable
 {
     public DWeapon myWeapon;
+    public GameObject deathEffect;
     public float health = 100;
 
     public float moveSpeed = 5f;
@@ -74,8 +75,23 @@ public class DCharacterController : MonoBehaviour, Damageable
 
 
         Vector2 lookDir = command.mousePosition - rb.position;
-        rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        if (this.CompareTag("Player"))
+            rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        else if(this.CompareTag("Enemy"))
+        {
+            Transform myBody = this.transform.GetChild(1);
+            Vector3 direction = command.mousePosition - new Vector2(myBody.transform.position.x, myBody.transform.position.y);
+
+            // Calculate the angle in degrees
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            angle += 90f;
+
+            // Set the rotation of the sprite to face the target object
+            myBody.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
+
+    
 
     void ShootMyWeapon(ShootCommand command)
     {
@@ -110,6 +126,7 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     public void Die()
     {
+        Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject); //Simple and easy remove for now.
     }
 }
