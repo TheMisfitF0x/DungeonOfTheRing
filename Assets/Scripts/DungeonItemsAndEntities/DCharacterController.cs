@@ -136,8 +136,10 @@ public class DCharacterController : MonoBehaviour, Damageable
             {
                 myWeapon.holdingCharacter = null;
                 myWeapon.transform.parent = null;
+                myWeapon.groundAnim.Play();
                 myWeapon.transform.position = groundWeapon.transform.position;
                 myWeapon.transform.rotation = groundWeapon.transform.rotation;
+
             }
             myWeapon = groundWeapon;
             groundWeapon.Interact(this);

@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1428744484462625717}
   - component: {fileID: 348527645522347594}
   - component: {fileID: 1604907295093002412}
+  - component: {fileID: 7997459232791968655}
   m_Layer: 0
   m_Name: WeaponBase
   m_TagString: Weapon
@@ -139,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 4124961953706768274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1891578467581600706}
   - {fileID: 6055465850851029824}
@@ -175,8 +176,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1994193913870943332, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
-  muzzleVelocity: 2
+  muzzleVelocity: 45.47
   canHoldTrigger: 0
-  fireDelay: 1
-  isPickedUp: 0
+  fireDelay: 0.5
   holdingCharacter: {fileID: 0}
+--- !u!111 &7997459232791968655
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124961953706768274}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9148d25b33448db418388d463c1b9cfa, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 9148d25b33448db418388d463c1b9cfa, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

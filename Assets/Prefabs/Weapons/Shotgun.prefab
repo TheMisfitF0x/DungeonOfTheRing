@@ -124,8 +124,7 @@ MonoBehaviour:
   muzzleVelocity: 20
   canHoldTrigger: 0
   fireDelay: 1
-  isPickedUp: 0
   holdingCharacter: {fileID: 0}
-  projectileCount: 5
+  projectileCount: 8
   uniformDistroAngle: 0
-  spread: 40
+  spread: 90
