@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -496093638803321758, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
+      propertyPath: m_Time
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: -496093638803321758, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.1755085
+      objectReference: {fileID: 0}
     - target: {fileID: 1994193913870943332, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
       propertyPath: m_Name
       value: LMGRound
@@ -73,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994193913870943339, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1994193913870943339, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
       propertyPath: m_LocalPosition.y
@@ -140,6 +148,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0}
   serializedVersion: 2
-  m_Radius: 0.09
+  m_Radius: 0.06682954

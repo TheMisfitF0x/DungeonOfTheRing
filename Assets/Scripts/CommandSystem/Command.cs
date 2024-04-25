@@ -13,4 +13,5 @@ public enum CommandType
     Ability,
     Damage,
     Repulse,
+    Interact
 }

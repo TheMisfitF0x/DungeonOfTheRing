@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DWeapon : MonoBehaviour
+public class DWeapon : MonoBehaviour, Interactable
 {
     public GameObject projectile;
     public float muzzleVelocity;
     private Transform muzzlePoint;
     public bool canHoldTrigger;
     public float fireDelay;
-    public bool isPickedUp = false;
     public DCharacterController holdingCharacter;
 
 
@@ -36,5 +35,15 @@ public class DWeapon : MonoBehaviour
     public virtual void AltShoot()
     {
         //Overridable for future weapons
+    }
+
+    public void Interact(DCharacterController interactingActor)
+    {
+        Transform weaponSpot = interactingActor.transform.GetChild(0);
+        
+        this.transform.parent = interactingActor.gameObject.transform;
+        this.transform.position = weaponSpot.position;
+        this.transform.rotation = weaponSpot.rotation;
+        holdingCharacter = interactingActor;
     }
 }

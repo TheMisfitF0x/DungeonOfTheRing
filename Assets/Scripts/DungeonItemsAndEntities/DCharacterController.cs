@@ -52,6 +52,9 @@ public class DCharacterController : MonoBehaviour, Damageable
             case CommandType.Damage: //If for some reason I go through execute, this is here to catch me. ReceiveDamage is, for the moment, public to ensure that it can be casted on non CC objects.
                 ReceiveDamage(command as DamageCommand);
                 break;
+            case CommandType.Interact:
+                InteractWith(command as InteractCommand);
+                break;
 
             default:
                 break;
@@ -122,6 +125,24 @@ public class DCharacterController : MonoBehaviour, Damageable
     {
         //Do the healy thing. For now...
         health += incomingHeal;
+    }
+
+    private void InteractWith(InteractCommand command)
+    {
+        if(command.item is DWeapon)
+        {
+            DWeapon groundWeapon = (DWeapon)command.item;
+            if(myWeapon != null)
+            {
+                myWeapon.holdingCharacter = null;
+                myWeapon.transform.parent = null;
+                myWeapon.transform.position = groundWeapon.transform.position;
+                myWeapon.transform.rotation = groundWeapon.transform.rotation;
+            }
+            myWeapon = groundWeapon;
+            groundWeapon.Interact(this);
+        }
+            
     }
 
     public void Die()
