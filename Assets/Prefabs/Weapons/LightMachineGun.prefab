@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: muzzleVelocity
       value: 22.03
       objectReference: {fileID: 0}
+    - target: {fileID: 1761272180265126799, guid: 24f52808967877940af88e11da9f3d46, type: 3}
+      propertyPath: m_Pitch
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761272180265126799, guid: 24f52808967877940af88e11da9f3d46, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a5a1d838fb4d94c4ca79cb7d30a8a859, type: 3}
     - target: {fileID: 1891578467581600706, guid: 24f52808967877940af88e11da9f3d46, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

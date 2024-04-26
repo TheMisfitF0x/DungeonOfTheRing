@@ -71,13 +71,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1761272180265126799, guid: 24f52808967877940af88e11da9f3d46, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2729c86b15c16bb4baf7865d6c0d4267, type: 3}
     - target: {fileID: 4124961953706768274, guid: 24f52808967877940af88e11da9f3d46, type: 3}
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 6055465850851029824, guid: 24f52808967877940af88e11da9f3d46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.363
+      value: 0.532
       objectReference: {fileID: 0}
     - target: {fileID: 8258166414212125950, guid: 24f52808967877940af88e11da9f3d46, type: 3}
       propertyPath: m_FlipY
@@ -120,8 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7458679a17a76a94a8138b4262b00957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1994193913870943332, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
-  muzzleVelocity: 20
+  projectile: {fileID: 7361688691210700466, guid: c450299c5b80d7246a3cd054083716d9, type: 3}
+  muzzleVelocity: 35
+  groundAnim: {fileID: 0}
   canHoldTrigger: 0
   fireDelay: 1
   holdingCharacter: {fileID: 0}

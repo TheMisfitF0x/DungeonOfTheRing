@@ -30,6 +30,7 @@ public class DProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //When I hit a thing
     {
+        
         if (isOutOfGun && collision.GetComponent<Damageable>() != null)
         {
             ImpactDetonate(collision.GetComponent<Damageable>());

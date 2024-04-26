@@ -14,6 +14,9 @@ public class DCharacterController : MonoBehaviour, Damageable
     private UIManager uiMan;
     private Slider healthBar;
 
+    public AudioSource deathSound;
+    public AudioSource hitSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -112,6 +115,7 @@ public class DCharacterController : MonoBehaviour, Damageable
             this.HealDamage(command.damage * -1); //Negative damage will trigger healing on living beings.
         else
         {
+            hitSound.Play();
             health -= command.damage;
         }
 
@@ -136,7 +140,7 @@ public class DCharacterController : MonoBehaviour, Damageable
             {
                 myWeapon.holdingCharacter = null;
                 myWeapon.transform.parent = null;
-                myWeapon.groundAnim.Play();
+                myWeapon.groundAnim.SetTrigger("Drop");
                 myWeapon.transform.position = groundWeapon.transform.position;
                 myWeapon.transform.rotation = groundWeapon.transform.rotation;
 
@@ -149,6 +153,7 @@ public class DCharacterController : MonoBehaviour, Damageable
 
     public void Die()
     {
+        deathSound.Play();
         Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject); //Simple and easy remove for now.
     }

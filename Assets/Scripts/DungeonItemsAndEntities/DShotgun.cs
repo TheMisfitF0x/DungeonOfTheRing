@@ -17,13 +17,14 @@ public class DShotgun : DWeapon
     {
         if (Time.time >= lastShotTime + fireDelay)
         {
+            fireSound.Play();
             for (int i = 0; i < projectileCount; i++)
             {
                 // Calculate the spread angle for each pellet
                 float angle = transform.eulerAngles.z - spread / 2 + Random.Range(0f, spread);
 
                 // Create a new pellet instance
-                GameObject pellet = Instantiate(projectile, transform.position, Quaternion.Euler(0f, 0f, angle));
+                GameObject pellet = Instantiate(projectile, muzzlePoint.position, Quaternion.Euler(0f, 0f, angle));
 
                 // Apply force to the pellet
                 Rigidbody2D rb = pellet.GetComponent<Rigidbody2D>();

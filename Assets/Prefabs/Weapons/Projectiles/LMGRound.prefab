@@ -27,10 +27,6 @@ PrefabInstance:
       propertyPath: m_UseAutoMass
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1994193913870943334, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1994193913870943335, guid: ad40de3918b70b947b05e05a4ca06158, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.09
@@ -150,4 +146,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0}
   serializedVersion: 2
-  m_Radius: 0.06682954
+  m_Radius: 0.11455215

@@ -32,7 +32,7 @@ public class EEnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null && Vector2.Distance(player.transform.position, transform.position) < 50)
+        if (player != null && Vector2.Distance(player.transform.position, transform.position) < 50f)
         {
             if (Vector2.Distance(player.transform.position, transform.position) < attackRange)
                 playerClose = true;

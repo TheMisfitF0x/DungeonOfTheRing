@@ -6,8 +6,9 @@ public class DWeapon : MonoBehaviour, Interactable
 {
     public GameObject projectile;
     public float muzzleVelocity;
-    private Transform muzzlePoint;
-    public Animation groundAnim;
+    protected Transform muzzlePoint;
+    protected AudioSource fireSound;
+    public Animator groundAnim;
     public bool canHoldTrigger;
     public float fireDelay;
     public DCharacterController holdingCharacter;
@@ -18,10 +19,11 @@ public class DWeapon : MonoBehaviour, Interactable
     private void Start()
     {
         muzzlePoint = transform.Find("MuzzlePoint");
-        groundAnim = GetComponent<Animation>();
+        groundAnim = GetComponent<Animator>();
+        fireSound = GetComponent<AudioSource>();
         if(holdingCharacter == null)
         {
-            groundAnim.Play();
+            groundAnim.SetTrigger("Drop");
         }
     }
 
@@ -36,6 +38,7 @@ public class DWeapon : MonoBehaviour, Interactable
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(muzzlePoint.up * muzzleVelocity, ForceMode2D.Impulse);
+            fireSound.Play();
             lastShotTime = Time.time;
         }
     }
@@ -53,6 +56,6 @@ public class DWeapon : MonoBehaviour, Interactable
         this.transform.position = weaponSpot.position;
         this.transform.rotation = weaponSpot.rotation;
         holdingCharacter = interactingActor;
-        groundAnim.Stop();
+        groundAnim.SetTrigger("Pickup");
     }
 }
