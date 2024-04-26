@@ -12,6 +12,7 @@ public class DCharacterController : MonoBehaviour, Damageable
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private UIManager uiMan;
+    private GameplayManager gameMan;
     private Slider healthBar;
 
     public AudioSource deathSound;
@@ -23,6 +24,7 @@ public class DCharacterController : MonoBehaviour, Damageable
         //Find all the things.
         rb = this.GetComponent<Rigidbody2D>();
         uiMan = GameObject.Find("UIManager").GetComponent<UIManager>();
+        gameMan = GameObject.Find("GameplayManager").GetComponent<GameplayManager>();
         myWeapon = this.gameObject.GetComponentInChildren<DWeapon>();
         if (this.CompareTag("Enemy")) healthBar = this.transform.Find("Canvas").Find("HealthBar").GetComponent<Slider>(); //If enemy, grab the local healthbar
     }
@@ -154,6 +156,7 @@ public class DCharacterController : MonoBehaviour, Damageable
     public void Die()
     {
         deathSound.Play();
+        if (this.CompareTag("Player")) gameMan.OnDeath();
         Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject); //Simple and easy remove for now.
     }

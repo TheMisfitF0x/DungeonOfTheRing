@@ -1,20 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameplayManager : MonoBehaviour
 {
-
+    public GameObject endScreen;
+    public GameObject overScreen;
+    private float timer = 0f;
+    private float endTime = 5f;
+    private bool countingDown = false;
     public void Start()
     {
 
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player")) EndGame();
+        
+    }
+
+    public void EndGame()
+    {
+        endScreen.SetActive(true);
+        countingDown = true;
+    }
+
+    public void OnDeath()
+    {
+        overScreen.SetActive(true);
+        countingDown = true;
     }
     public void Update()
     {
         //if chamber is active,
         //MonitorChamber();
         //else, do nothing (that I can think of...)
+
+        if(countingDown)
+        {
+            timer += Time.deltaTime;
+            if(timer > endTime)
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
     }
 
     public void sessionStart(int floor, int chamber)
