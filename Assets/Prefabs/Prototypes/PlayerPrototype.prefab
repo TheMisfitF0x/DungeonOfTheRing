@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myWeapon: {fileID: 0}
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 3808331803088342362, guid: e82e912d5b1f8ec4d9b5d30e4654fd56, type: 3}
   health: 500
   moveSpeed: 9
   deathSound: {fileID: 3380398094239812625}
